@@ -69,7 +69,7 @@ def main():
     quadratic_factor = quadratic_model(input_width, a, b, c)
     linear_factor = linear_model(input_width, m, c_linear)
     
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     
     with col1:
         st.markdown("**Quadratic Model Prediction:**")
@@ -83,6 +83,13 @@ def main():
         st.metric(
             label="Factor", 
             value=f"{linear_factor:.4f}"
+        )
+
+    with col3:
+        st.markdown("**Quadratic Width Prediction:**")
+        st.metric(
+            label="Width", 
+            value=f"{int(input_width*quadratic_factor)}"
         )
     
     st.markdown("### 📋 Detailed Model Information")
